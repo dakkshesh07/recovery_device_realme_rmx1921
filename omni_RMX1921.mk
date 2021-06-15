@@ -34,6 +34,14 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_PRODUCT=RMX1921 \
     TARGET_DEVICE=RMX1921
 
+PRODUCT_SYSTEM_PROPERTY_BLACKLIST += \
+    ro.product.device \
+    ro.product.product.device \
+    ro.build.product \
+    ro.product.name \
+    ro.product.model \
+    ro.product.product.model
+
 # HACK: Set vendor patch level
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.vendor.build.security_patch=2099-12-31
