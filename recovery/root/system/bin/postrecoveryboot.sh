@@ -1,45 +1,31 @@
-load_RMX1991()
-{
-    resetprop "ro.product.name" "RMX1991"
-    resetprop "ro.build.product" "RMX1991"
-    resetprop "ro.product.device" "RMX1991CN"
-    resetprop "ro.commonsoft.ota" "RMX1991"
-    resetprop "ro.separate.soft" "19771"
-    resetprop "ro.build.date.utc" "1640000000"
-    echo "Chinese variant detected - using RMX1991 props"
+load_RMX1921() {
+	resetprop "ro.product.device" "RMX1921"
+	resetprop "ro.product.product.device" "RMX1921"
+	resetprop "ro.build.product" "RMX1921"
+	resetprop "ro.product.name" "RMX1921"
+	resetprop "ro.product.model" "RMX1921"
+	resetprop "ro.product.product.model" "RMX1921"
+	resetprop "ro.separate.soft" "19651"
+	resetprop "ro.vendor.product.device.oem" "RMX1921"
 }
- 
-load_RMX1992()
-{
-    resetprop "ro.product.name" "RMX1992"
-    resetprop "ro.build.product" "RMX1992"
-    resetprop "ro.product.device" "RMX1992L1"
-    resetprop "ro.commonsoft.ota" "RMX1992"
-    resetprop "ro.separate.soft" "19671"
-    resetprop "ro.build.date.utc" "1640000000"
-    echo "Indian variant detected - using RMX1992 props"
+
+load_RMX1921EU() {
+	resetprop "ro.product.device" "RMX1921EU"
+	resetprop "ro.product.product.device" "RMX1921EU"
+	resetprop "ro.build.product" "RMX1921EU"
+	resetprop "ro.product.name" "RMX1921EU"
+	resetprop "ro.product.model" "RMX1921"
+	resetprop "ro.product.product.model" "RMX1921"
+	resetprop "ro.separate.soft" "19651"
+	resetprop "ro.vendor.product.device.oem" "RMX1921"
 }
- 
-load_RMX1993()
-{
-    resetprop "ro.product.name" "RMX1993"
-    resetprop "ro.build.product" "RMX1993"
-    resetprop "ro.product.device" "RMX1993L1"
-    resetprop "ro.commonsoft.ota" "RMX1993"
-    resetprop "ro.separate.soft" "19672"
-    resetprop "ro.build.date.utc" "1640000000"
-    echo "European variant detected - using RMX1993 props"
-}
- 
-project=$(cat /proc/oplusVersion/operatorName)
-echo $project
- 
-case $project in
-    "8") load_RMX1991 ;;
-    "31") load_RMX1992 ;;
-    *) load_RMX1993 ;;
-esac
- 
-resetprop "ro.build.date.utc" "1000000000"
- 
+
+sku=$(getprop ro.boot.product.hardware.sku)
+if [ "$sku" = "nfc_ese" ] || [ "$sku" = "RMX1921EU" ] ; then
+	load_RMX1921EU
+else
+	load_RMX1921
+fi
+resetprop "ro.build.date.utc" "1640000000"
+
 exit 0
