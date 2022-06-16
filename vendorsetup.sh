@@ -1,1 +1,2 @@
 export ALLOW_MISSING_DEPENDENCIES=true
+export USE_CCACHE=1
