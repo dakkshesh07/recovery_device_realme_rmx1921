@@ -15,17 +15,17 @@
 #
 
 # Release name
-PRODUCT_RELEASE_NAME := realme_sdm710
+PRODUCT_RELEASE_NAME := nicky
 
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/twrp/config/common.mk)
-$(call inherit-product, device/realme/realme_sdm710/device.mk)
+$(call inherit-product, device/oplus/nicky/device.mk)
 
 ## Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := $(PRODUCT_RELEASE_NAME)
-PRODUCT_NAME := aosp_$(PRODUCT_RELEASE_NAME)
-PRODUCT_BRAND := Realme
-PRODUCT_MANUFACTURER := Realme
+PRODUCT_NAME := twrp_$(PRODUCT_RELEASE_NAME)
+PRODUCT_BRAND := realme
+PRODUCT_MANUFACTURER := realme
 PRODUCT_MODEL := $(PRODUCT_RELEASE_NAME)
     
 # HACK: Set vendor patch level

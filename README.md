@@ -1,4 +1,4 @@
-# android_device_realme_(realme_sdm710)
+# recovery_device_oplus_nicky
 Recovery tree for realme sdm710 devices
 
 ## Features
@@ -12,19 +12,19 @@ Works:
 First checkout manifest :
 
 ```
-repo init --depth=1 -u git://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-11
-repo sync
+repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifest_twrp_aosp.git -b twrp-12.1
+repo sync -c
 ```
 
-Then clone the current device tree onto device/realme/realme_sdm710
+Then clone the current device tree onto device/oplus/nicky
 
 
 Finally execute these:
 
 ```
 . build/envsetup.sh
-lunch omni_RMX1921-eng
-mka recoveryimage ALLOW_MISSING_DEPENDENCIES=true
+lunch twrp_nicky-eng
+mka recoveryimage
 ```
 
 To test it:

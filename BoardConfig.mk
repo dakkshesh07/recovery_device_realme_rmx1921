@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-DEVICE_PATH := device/realme/realme_sdm710
+DEVICE_PATH := device/oplus/nicky
 
 # Architecture
 TARGET_ARCH := arm64
@@ -43,20 +43,21 @@ TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery.fstab
 
 # Kernel
 BOARD_KERNEL_CMDLINE := \
-   console=ttyMSM0,115200n8 \
-   earlycon=msm_geni_serial,0xA90000 \
-   androidboot.hardware=qcom \
-   androidboot.console=ttyMSM0 \
-   video=vfb:640x400,bpp=32,memsize=3072000 \
-   msm_rtb.filter=0x237 \
-   ehci-hcd.park=3 \
-   lpm_levels.sleep_disabled=1 \
-   service_locator.enable=1 \
-   androidboot.configfs=true \
-   androidboot.usbcontroller=a600000.dwc3 \
-   swiotlb=1 \
-   loop.max_part=7
-#   kpti=off \
+    console=ttyMSM0,115200n8 \
+    earlycon=msm_geni_serial,0xA90000 \
+    androidboot.hardware=qcom \
+    androidboot.console=ttyMSM0 \
+    video=vfb:640x400,bpp=32,memsize=3072000 \
+    msm_rtb.filter=0x237 \
+    ehci-hcd.park=3 \
+    lpm_levels.sleep_disabled=1 \
+    service_locator.enable=1 \
+    androidboot.configfs=true \
+    androidboot.usbcontroller=a600000.dwc3 \
+    swiotlb=1 \
+    loop.max_part=7 \
+    printk.devkmsg=on \
+    kpti=off
 
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
@@ -64,11 +65,12 @@ BOARD_KERNEL_IMAGE_NAME := Image.gz-dtb
 TARGET_KERNEL_ARCH := arm64
 TARGET_KERNEL_HEADER_ARCH := arm64
 TARGET_NO_KERNEL := false
-TARGET_PREBUILT_KERNEL := $(DEVICE_PATH)/prebuilt/Image.gz-dtb
-#BOARD_KERNEL_SEPARATED_DTBO := true
-BOARD_PREBUILT_DTBOIMAGE := $(DEVICE_PATH)/prebuilt/dtbo.img
+BOARD_KERNEL_SEPARATED_DTBO := true
 BOARD_INCLUDE_RECOVERY_DTBO := true
 BOARD_MKBOOTIMG_ARGS += --ramdisk_offset 0x01000000 --tags_offset 0x00000100 --header_version 1
+TARGET_KERNEL_SOURCE := kernel/oplus/sdm710
+TARGET_KERNEL_CONFIG := vendor/sdm670-perf_defconfig
+TARGET_CLANG_COMPILE := true
 
 # Assert
 TARGET_OTA_ASSERT_DEVICE := RMX1921,RMX1921EU,RMX1901,RMX1901CN,RMX1851,RMX1971,RMX1971CN
