@@ -1,8 +1,8 @@
 [
   {
     "remote": "TeamWin",
-    "repository": "android_device_qcom_twrp-common",
-    "target_path": "device/qcom/twrp-common",
-    "revision": "android-11"
+    "repository": "android_kernel_oplus_sdm710",
+    "target_path": "kernel/oplus/sdm710",
+    "revision": "android-12.1"
   }
 ]
