@@ -35,8 +35,12 @@ on init
     setprop vendor.gatekeeper.disable_spu true
 
 on boot
-    chmod 0777 /system/bin/unifying_script_realme_sdm710.sh
+    chmod 0777 /system/bin/custom-script.sh
     start custom-script
+
+on property:ro.boot.prjname=*
+    # Asserts for realme UI 2 flash
+    setprop ro.separate.soft ${ro.boot.prjname}
 
 service custom-script /system/bin/custom-script.sh
     user root
