@@ -17,8 +17,15 @@
 # Release name
 PRODUCT_RELEASE_NAME := nicky
 
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+
+# Inherit from common AOSP config
+$(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
+
 # Inherit from our custom product configuration
 $(call inherit-product, vendor/twrp/config/common.mk)
+
 $(call inherit-product, device/oplus/nicky/device.mk)
 
 ## Device identifier. This must come after all inclusions
@@ -27,7 +34,3 @@ PRODUCT_NAME := twrp_$(PRODUCT_RELEASE_NAME)
 PRODUCT_BRAND := realme
 PRODUCT_MANUFACTURER := realme
 PRODUCT_MODEL := $(PRODUCT_RELEASE_NAME)
-    
-# HACK: Set vendor patch level
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.build.security_patch=2099-12-31

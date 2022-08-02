@@ -1,8 +1,0 @@
-[
-  {
-    "remote": "TeamWin",
-    "repository": "android_kernel_oplus_sdm710",
-    "target_path": "kernel/oplus/sdm710",
-    "revision": "android-12.1"
-  }
-]

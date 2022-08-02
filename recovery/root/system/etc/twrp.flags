@@ -20,28 +20,6 @@
 /persist        ext4    /dev/block/bootdevice/by-name/persist                       flags=display="Persist";fsflags=ro
 /persist_image  emmc    /dev/block/bootdevice/by-name/persist                       flags=display="Persist Image";backup=1
 
-# Firmware-update partitions
-/abl            emmc    /dev/block/bootdevice/by-name/abl                           flags=display="Firmware-update";backup=1
-/aop            emmc    /dev/block/bootdevice/by-name/aop                           flags=backup=1;subpartitionof=/abl
-/apdp           emmc    /dev/block/bootdevice/by-name/apdp                          flags=backup=1;subpartitionof=/abl
-/bluetooth      emmc    /dev/block/bootdevice/by-name/bluetooth                     flags=backup=1;subpartitionof=/abl
-/cmnlib         emmc    /dev/block/bootdevice/by-name/cmnlib                        flags=backup=1;subpartitionof=/abl
-/cmnlib64       emmc    /dev/block/bootdevice/by-name/cmnlib64                      flags=backup=1;subpartitionof=/abl
-/devcfg         emmc    /dev/block/bootdevice/by-name/devcfg                        flags=backup=1;subpartitionof=/abl
-/DRIVER         emmc    /dev/block/bootdevice/by-name/DRIVER                        flags=backup=1;subpartitionof=/abl
-/dsp            emmc    /dev/block/bootdevice/by-name/dsp                           flags=backup=1;subpartitionof=/abl
-/hyp            emmc    /dev/block/bootdevice/by-name/hyp                           flags=backup=1;subpartitionof=/abl
-/keymaster      emmc    /dev/block/bootdevice/by-name/keymaster                     flags=backup=1;subpartitionof=/abl
-/msadp          emmc    /dev/block/bootdevice/by-name/msadp                         flags=backup=1;subpartitionof=/abl
-/oppo_sec       emmc    /dev/block/bootdevice/by-name/oppo_sec                      flags=backup=1;subpartitionof=/abl
-/oppostanvbk    emmc    /dev/block/bootdevice/by-name/oppostanvbk                   flags=backup=1;subpartitionof=/abl
-/qupfw          emmc    /dev/block/bootdevice/by-name/qupfw                         flags=backup=1;subpartitionof=/abl
-/storsec        emmc    /dev/block/bootdevice/by-name/storsec                       flags=backup=1;subpartitionof=/abl
-/tz             emmc    /dev/block/bootdevice/by-name/tz                            flags=backup=1;subpartitionof=/abl
-/xbl            emmc    /dev/block/bootdevice/by-name/xbl                           flags=backup=1;subpartitionof=/abl
-/xbl_config     emmc    /dev/block/bootdevice/by-name/xbl_config                    flags=backup=1;subpartitionof=/abl
-/modem          emmc    /dev/block/bootdevice/by-name/modem                         flags=backup=1;subpartitionof=/abl
-
 /splash         emmc    /dev/block/bootdevice/by-name/splash                        flags=display="Boot-Logo";backup=1;flashimg=1
 
 # Removable storage

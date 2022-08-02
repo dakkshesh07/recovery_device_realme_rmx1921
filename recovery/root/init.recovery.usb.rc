@@ -32,10 +32,8 @@ on init
     setprop sys.usb.configfs 1
 
 on fs
-    write /sys/class/power_supply/usb/otg_switch 1
-
-on boot
     setprop sys.usb.config adb
+    write /sys/class/power_supply/usb/otg_switch 1
 
 on property:ro.boot.usbcontroller=*
     setprop sys.usb.controller ${ro.boot.usbcontroller}
