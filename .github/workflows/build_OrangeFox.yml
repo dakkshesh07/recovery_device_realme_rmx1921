@@ -9,6 +9,11 @@ jobs:
     - name: "Cleanup Environment"
       uses: rokibhasansagar/slimhub_actions@main
 
+    - name: Set Swap Space
+      uses: pierotofy/set-swap-space@master
+      with:
+        swap-size-gb: 11
+        
     - name: Install dependencies
       run: |
         sudo apt-get update -y
@@ -40,7 +45,7 @@ jobs:
         cd fox_12.1
         source build/envsetup.sh || true
         lunch twrp_nicky-eng
-        mka adbd recoveryimage
+        mka adbd recoveryimage -j2
 
     - name: Upload recovery
       uses: actions/upload-artifact@v3
