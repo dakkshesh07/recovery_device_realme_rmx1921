@@ -1,6 +1,9 @@
 #<src>                                               <mnt_point>    <type>  <mnt_flags and options>   <fs_mgr_flags>
 # Userdata partition
-/dev/block/bootdevice/by-name/userdata                  /data                    ext4    noatime,nosuid,nodev,barrier=1,noauto_da_alloc,async_discard,lazytime,errors=panic       latemount,wait,check,fileencryption=ice,quota,reservedsize=128M
+/dev/block/bootdevice/by-name/userdata                  /data                    f2fs    noatime,nosuid,nodev,discard,fsync_mode=nobarrier,inlinecrypt       latemount,wait,check,fileencryption=ice,quota,formattable,reservedsize=128M
+/dev/block/bootdevice/by-name/userdata                  /data                    ext4    noatime,nosuid,nodev,barrier=1,noauto_da_allo,lazytime,errors=panic       latemount,wait,check,fileencryption=ice,quota,reservedsize=128M
+/dev/block/bootdevice/by-name/cache                     /cache                   f2fs    nosuid,nodev,noatime,barrier=1,inline_xattr,flush_merge,data_flush   wait
+/dev/block/bootdevice/by-name/cache                     /cache                   ext4    nosuid,noatime,nodev,barrier=1         wait
 
 # Need to have this entry in here even though the mount point itself is no longer needed.
 # The update_engine code looks for this entry in order to determine the boot device address
