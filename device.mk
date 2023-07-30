@@ -14,15 +14,15 @@
 # limitations under the License.
 #
 
-LOCAL_PATH := device/oplus/nicky
+LOCAL_PATH := device/realme/RMX1921
 
 # Inherit from common AOSP config
 $(call inherit-product, $(SRC_TARGET_DIR)/product/base.mk)
 
 # Launched with pie
 $(call inherit-product, build/make/target/product/product_launched_with_p.mk)
- 
-# Build from source 
+
+# Build from source
 TARGET_RECOVERY_DEVICE_MODULES += \
     android.hidl.base@1.0 \
     libdrm \

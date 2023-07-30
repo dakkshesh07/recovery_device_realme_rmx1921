@@ -1,5 +1,5 @@
-# recovery_device_oplus_nicky
-Recovery tree for realme sdm710 devices
+# recovery_device_realme_RMX1921
+Recovery tree for Realme XT
 
 ## Features
 
@@ -16,14 +16,14 @@ repo init --depth=1 -u https://github.com/minimal-manifest-twrp/platform_manifes
 repo sync -c
 ```
 
-Then clone the current device tree onto device/oplus/nicky
+Then clone the current device tree onto device/realme/RMX1921
 
 
 Finally execute these:
 
 ```
 . build/envsetup.sh
-lunch twrp_nicky-eng
+lunch twrp_RMX1921-eng
 mka recoveryimage
 ```
 
