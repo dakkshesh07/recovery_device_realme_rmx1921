@@ -27,6 +27,14 @@
 
 import /init.recovery.qcom_decrypt.rc
 
+
+service detect-dynamic-partitions /system/bin/dynamic-handler.sh
+    user root
+    group root
+    disabled
+    oneshot
+    seclabel u:r:recovery:s0
+
 on fs
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
@@ -34,6 +42,7 @@ on fs
     write /proc/touchpanel/tp_fw_update 0
 
 on init
+    start detect-dynamic-partitions
     setprop vendor.gatekeeper.disable_spu true
 
 on boot
