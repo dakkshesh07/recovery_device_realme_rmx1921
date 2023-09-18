@@ -3,11 +3,11 @@
 # specify MF_CHECK, and must come before any filesystems that do specify MF_CHECK
 
 # mount point  fstype    device                             device2                    flags
-/system			ext4	 system								                           flags=display="System";backup=1
-/vendor			ext4	 vendor								                           flags=display="Vendor";backup=1
-/product        ext4     product								                       flags=display="Product";backup=1
-/system_ext     ext4	 system_ext							                           flags=display="System_Ext";backup=1
-/odm            ext4	 odm								                           flags=display="ODM";backup=1
+/system			erofs	 system								                           flags=display="System";backup=1
+/vendor			erofs	 vendor								                           flags=display="Vendor";backup=1
+/product        erofs     product								                       flags=display="Product";backup=1
+/system_ext     erofs	 system_ext							                           flags=display="System_Ext";backup=1
+/odm            erofs	 odm								                           flags=display="ODM";backup=1
 /metadata       ext4     /dev/block/bootdevice/by-name/logdump                         flags=display="Metadata";fsflags="discard"
 /boot           emmc     /dev/block/bootdevice/by-name/boot                            flags=display="Boot"
 /dtbo           emmc     /dev/block/bootdevice/by-name/dtbo                            flags=backup=1;display="Dtbo";flashimg=1
